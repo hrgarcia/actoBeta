@@ -7,12 +7,13 @@ let logo;
 let offset = 100;
 
 function preload() {
-    frases = loadStrings('../dummy.txt');
+    frases = loadStrings('../dummy.txt  ');
     myFont = loadFont('/fonts/Friday Beach.ttf');
     logo = loadImage('../images/logo.png');
 }
 
 function setup() {
+    noStroke();
     canvas = createCanvas(w, h);
     background(28, 28, 28);
     fill(255);
