@@ -1,3 +1,6 @@
+var w = window.innerWidth;
+var h = window.innerHeight;
+
 let frases;
 let myFont;
 let logo;
@@ -10,32 +13,25 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    canvas = createCanvas(w, h);
     background(28, 28, 28);
-    fill(255);
-    textSize(75);
-    textFont(myFont);
-    text('Acto del dia del maestro', 350, 10, 1500, 1500);
-    image(logo, 0, 0);
     fill(255);
     textSize(50);
     textFont(myFont);
     setInterval(() => {
         text(random(frases), random(offset, width - offset), random(offset, height - offset), 150, 150);
-    }, 3000);
+    }, 2000);
 }
 
-function draw() {}
-
-/* full screening will change the size of the canvas */
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+function draw() {
+    image(logo, 0, 0);
 }
 
-/* prevents the mobile browser from processing some default
- * touch events, like swiping left for "back" or scrolling
- * the page.
- */
-document.ontouchmove = function (event) {
-    event.preventDefault();
+window.onresize = function () {
+    // assigns new values for width and height variables
+
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.size(w, h);
+    background(28, 28, 28);
 };
